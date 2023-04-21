@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${message}">出错:500</h1>
+</body>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script>
+
+    setTimeout(()=>window.history.go(-1),1000);
+
+</script>
+</html>

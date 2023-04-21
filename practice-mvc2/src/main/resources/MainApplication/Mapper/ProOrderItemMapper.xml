@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MainApplication.Mapper.ProOrderItemMapper">
+  <resultMap id="BaseResultMap" type="MainApplication.PoJo.ProOrderItem">
+    <id column="orderCode" jdbcType="VARCHAR" property="ordercode" />
+    <id column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="cus_id" jdbcType="INTEGER" property="cusId" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    orderCode, p_id, cus_id, num
+  </sql>
+  <select id="selectByExample" parameterType="MainApplication.PoJo.ProOrderItemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pro_order_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="MainApplication.PoJo.ProOrderItemKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pro_order_item
+    where orderCode = #{ordercode,jdbcType=VARCHAR}
+      and p_id = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="MainApplication.PoJo.ProOrderItemKey">
+    delete from pro_order_item
+    where orderCode = #{ordercode,jdbcType=VARCHAR}
+      and p_id = #{pId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="MainApplication.PoJo.ProOrderItemExample">
+    delete from pro_order_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="MainApplication.PoJo.ProOrderItem">
+    insert into pro_order_item (orderCode, p_id, cus_id, 
+      num)
+    values (#{ordercode,jdbcType=VARCHAR}, #{pId,jdbcType=INTEGER}, #{cusId,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="MainApplication.PoJo.ProOrderItem">
+    insert into pro_order_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ordercode != null">
+        orderCode,
+      </if>
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="cusId != null">
+        cus_id,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ordercode != null">
+        #{ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="cusId != null">
+        #{cusId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="MainApplication.PoJo.ProOrderItemExample" resultType="java.lang.Long">
+    select count(*) from pro_order_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update pro_order_item
+    <set>
+      <if test="record.ordercode != null">
+        orderCode = #{record.ordercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pId != null">
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cusId != null">
+        cus_id = #{record.cusId,jdbcType=INTEGER},
+      </if>
+      <if test="record.num != null">
+        num = #{record.num,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update pro_order_item
+    set orderCode = #{record.ordercode,jdbcType=VARCHAR},
+      p_id = #{record.pId,jdbcType=INTEGER},
+      cus_id = #{record.cusId,jdbcType=INTEGER},
+      num = #{record.num,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="MainApplication.PoJo.ProOrderItem">
+    update pro_order_item
+    <set>
+      <if test="cusId != null">
+        cus_id = #{cusId,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+    </set>
+    where orderCode = #{ordercode,jdbcType=VARCHAR}
+      and p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="MainApplication.PoJo.ProOrderItem">
+    update pro_order_item
+    set cus_id = #{cusId,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER}
+    where orderCode = #{ordercode,jdbcType=VARCHAR}
+      and p_id = #{pId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            opacity: 0.9;
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+            text-align: center;
+            opacity: 0.9;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            opacity: 0.9;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            opacity: 0.9;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr class="tr">
+      <td>订单号</td>
+      <td>收货地址</td>
+      <td>收货人</td>
+      <td>手机号</td>
+      <td>备注</td>
+      <td>详细产品</td>
+      <td>创建时间</td>
+      <td>提交时间</td>
+      <td>付费时间</td>
+      <td>总价格</td>
+      <td>客户id</td>
+      <td>状态</td>
+      <td class="manager">付款</td>
+    </tr>
+    <tr  th:each="order,orders:${list}">
+      <td class="ordercore" th:text="${order.ordercode}"></td>
+      <td class="address" th:text="${order.address}"></td>
+      <td class="receiver" th:text="${order.receiver}"></td>
+      <td class="mobile" th:text="${order.mobile}"></td>
+      <td class="usermessage" th:text="${order.usermessage}"></td>
+      <td><form th:action="@{order_item}" id="formId"><input type="hidden" name="ordercode" th:value="${order.ordercode}"><button>详细产品</button></form></td>
+      <td th:text="${order.createdate}"></td>
+      <td class="deliverdate" th:text="${order.deliverydate}"></td>
+      <td class="paydate" th:text="${order.paydate}"></td>
+      <td class="totalprice" th:text="${order.totalprice}"></td>
+      <td class="cusId" th:text="${order.cusId}"></td>
+      <td class="status" th:text="${order.status}"></td>
+      <td class="manager1"><a>123</a></td>
+    </tr>
+</table>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script>
+
+
+//    for (let i = 0; i < $(".tr").children().length; i++) {
+//
+//        alert($(".tr1 td:eq("+i+")").text())
+//
+//    }
+
+
+if($(".status").text()==="未付款"){
+    $(".manager1 a").attr("href","/pay?ordercode="+$(".ordercore").text()+"&address="+$(".address").text()
+        +"&receiver="+$(".receiver").text()+"&mobile="+$(".mobile").text()+"&usermessage="+$(".usermessage").text()
+        +"&deliverdate="+$(".deliverdate").text()+"&totalprice="+$(".totalprice").text()+"&cusId="+$(".cusId").text())
+    $(".manager1 a").text("付款")
+}else {
+    $(".manager1 a").text("已完成")
+}
+
+</script>
+
+
+</body>
+</html>

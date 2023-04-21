@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CheckOut</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!--    <link href="/css/googleapis.css" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="/css/icon-font-linea.css">
+    <link rel="stylesheet" type="text/css" href="/css/multirange.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/effect.css">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/cartpage.css">
+    <link rel="stylesheet" type="text/css" href="/css/contact.css">
+    <link rel="stylesheet" type="text/css" href="/css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css">
+</head>
+<body>
+
+<!-- End Header Box -->
+<!-- Content Box -->
+<div class="relative full-width">
+    <!-- Breadcrumb -->
+    <div class="container-web relative">
+        <div class="container">
+            <div class="row">
+                <div class="breadcrumb-web">
+                    <ul class="clear-margin">
+                        <li class="animate-default title-hover-red"><a href="#">Home</a></li>
+                        <li class="animate-default title-hover-red"><a href="#">登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+    <!-- Content Checkout -->
+    <div class="relative container-web">
+        <div class="container">
+            <div class="row relative">
+                <div
+                        class="full-width relative top-checkout-box overfollow-hidden top-margin-default">
+                    <div
+                            class="col-md-3 col-sm-12 col-xs-12 clear-padding-left left-top-checkout"></div>
+                    <div
+                            class="col-md-6 col-sm-12 col-xs-12 clear-padding-left left-top-checkout">
+                        <div class="full-width box-btn-top-click">
+                            <p>
+                                店家后台： <a href="/businesslogin.jsp" class="animate-default title-hover-red">Click
+                                to Business login</a>
+                                管理员后台：<a href="http://localhost:8001/#/home" class="animate-default title-hover-red">Click
+                                to User login</a>
+                            </p>
+                            <p
+                                    class="intro-top-click top-margin-default bottom-margin-default">
+                                如果您是老客户，请在下面的方框中输入您的详细信息进行登录。如果您是新客户，请转到注册页面进行注册.</p>
+                            <div class="relative">
+                                <form id="CustomerLogin" class="form-placeholde-animate">
+                                    <div class="field-wrap">
+                                        <label>账号名：<span class="req">*</span>
+                                        </label> <input type="text" name="phone" required autocomplete="off"/>
+                                    </div>
+                                    <div class="field-wrap">
+                                        <label>密码：<span class="req">*</span>
+                                        </label> <input type="text" name="password" required autocomplete="off"/>
+                                    </div>
+                                    <div class="relative justify-content form-login-checkout">
+                                        <button type="button" onclick="login_fun()"
+                                                class="animate-default button-hover-red">LOGIN
+                                        </button>
+                                        <ul
+                                                class="check-box-custom list-radius clear-margin clear-margin">
+                                            <li><label class="clear-margin">Remember me <input
+                                                    type="checkbox"> <span class="checkmark"></span>
+                                            </label></li>
+                                        </ul>
+                                        <a href="customerInsert.jsp" class="animate-default title-hover-red">注册?</a>
+                                    </div>
+                                    <br/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                            class="col-md-3 col-sm-12 col-xs-12 clear-padding-left left-top-checkout"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Content Checkout -->
+        <!-- Footer Box -->
+        <footer class="relative full-width">
+            <div class=" top-footer full-width">
+                <div class="clearfix container-web relative">
+                    <div class=" container">
+                        <div class="row">
+                            <div class="clearfix col-md-9 col-sm-12 clear-padding col-xs-12">
+                                <div class="clearfix text-subscribe">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <p>sign up for newsletter</p>
+                                    <p>Get updates on discount & counpons.</p>
+                                </div>
+                                <div class="clearfix form-subscribe">
+                                    <input type="text" name="email-subscribe"
+                                           placeholder="Enter your email . . .">
+                                    <button class="animate-default button-hover-red">subscribe</button>
+                                </div>
+                            </div>
+                            <div
+                                    class="clearfix col-md-3 col-sm-12 col-xs-12 clear-padding social-box text-right">
+                                <a href="#"><img src="/img/social_tw-min.png"
+                                                 alt="Icon Social Twiter"></a> <a href="#"><img
+                                    src="/img/social_fa-min.png" alt="Icon Social Facebook"></a>
+                                <a href="#"><img src="/img/social_int-min.png"
+                                                 alt="Icon Social Instagram"></a> <a href="#"><img
+                                    src="/img/social_yt-min.png" alt="Icon Social Youtube"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix container-web relative">
+                <div class=" container clear-padding">
+                    <div class="row">
+                        <div class="clearfix col-md-3 col-sm-6 col-xs-12 text-footer">
+                            <p>my account</p>
+                            <ul class="list-footer">
+                                <li><a href="#">My Account</a><input type="hidden" name="login" value="false"></li>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">My Cart</a></li>
+                                <li><a href="#">My Wishlist</a></li>
+                                <li><a href="#">My Compare</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix col-md-3 col-sm-6 col-xs-12 text-footer">
+                            <p>information</p>
+                            <ul class="list-footer">
+                                <li><a href="#">Information</a></li>
+                                <li><a href="#">Orders History</a></li>
+                                <li><a href="#">My Wishlist</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Site Map</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix col-md-3 col-sm-6 col-xs-12 text-footer">
+                            <p>our services</p>
+                            <ul class="list-footer">
+                                <li><a href="#">Product Recall</a></li>
+                                <li><a href="#">Gift Vouchers</a></li>
+                                <li><a href="#">Returns And Exchanges</a></li>
+                                <li><a href="#">Shipping Options</a></li>
+                                <li><a href="#">Terms Of Use</a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix col-md-3 col-sm-6 col-xs-12 text-footer">
+                            <p>contact us</p>
+                            <ul class="icon-footer">
+                                <li><i class="fa fa-home" aria-hidden="true"></i> 262
+                                    Milacina Mrest, Behansed, Paris
+                                </li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                                    contact@yourcompany.com
+                                </li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                    070-7782-9137
+                                </li>
+                                <li><i class="fa fa-fax" aria-hidden="true"></i>
+                                    070-7782-9138
+                                </li>
+                                <li><i class="fa fa-clock-o" aria-hidden="true"></i> 09:00
+                                    AM - 18:00 PM
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" bottom-footer full-width">
+                <div class="clearfix container-web">
+                    <div class=" container">
+                        <div class="row">
+                            <div class="clearfix col-md-7 clear-padding copyright">
+                                <p class="clear-margin">Copyright © 2020 by EngoCreative.
+                                    All Rights .</p>
+                            </div>
+                            <div
+                                    class="clearfix footer-icon-bottom col-md-5 float-right clear-padding">
+                                <div class="icon_logo_footer float-right">
+                                    <img src="/img/image_payment_footer-min.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Box -->
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/bootstrap.min.js" defer=""></script>
+        <script src="/js/multirange.js" defer=""></script>
+        <script src="/js/owl.carousel.min.js" defer=""></script>
+        <script src="/js/sync_owl_carousel.js" defer=""></script>
+        <script src="/js/scripts.js" defer=""></script>
+        <!--  js代码  -->
+        <script>
+            //定义函数提交登录请求
+            function login_fun() {
+                //根据id获取表单中的数据
+                let data = $("#CustomerLogin").serializeArray();
+                //发起一个异步请求
+                // url \  参数  \  回调函数  \  响应数据格式
+                $.get('/loginCustomer', data, function (result) {
+                    console.log(result);
+                    //判断
+                    if (result.ok == true) {
+                        window.location.href = '/loginsuccess';
+                    } else {
+                        alert(result.message);
+                    }
+                }, "json");
+            }
+        </script>
+
+
+
+
+
+    </div>
+</div>
+</body>
+</html>
